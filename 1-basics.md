@@ -6,3 +6,6 @@
 > To ensure your cluster operates reliably, you should run at least two nodes in the default node pool.
 - Kubernetes supports both stateless and stateful applications.
 - [Core Concepts Docs](https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#package-management-with-helm)
+
+**Namespace**: Users can only interact with resources within their assigned namespaces.
+- Kubernetes resources, such as pods and deployments, are logically grouped into namespaces
