@@ -9,3 +9,16 @@
 
 **Namespace**: Users can only interact with resources within their assigned namespaces.
 - Kubernetes resources, such as pods and deployments, are logically grouped into namespaces
+
+# Monitoring and logging for Azure Kubernetes Service
+- AKS natively integrates with Azure Monitor. Azure Monitor stores metrics and logs in a central location called a Log Analytics workspace. This data is processed and analyzed to provide insights and alerts.
+- [Monitor AKS](https://learn.microsoft.com/en-us/azure/aks/monitor-aks)
+- 
+![](https://learn.microsoft.com/en-us/azure/architecture/aws-professional/eks-to-aks/media/monitor-containers-architecture.png)
+
+- [AKS components to monitor](https://learn.microsoft.com/en-us/azure/architecture/aws-professional/eks-to-aks/monitoring#aks-cluster-and-workload-monitoring)
+
+-------------------------------------------------------------------------
+
+# Mod -3 
+[AKS Well Arch Framework](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-kubernetes-service)
