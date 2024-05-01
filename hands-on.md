@@ -4,4 +4,15 @@
 - `Maybe- shows NAT 8081:30000`
 
 
+----------------
+# Create Nginx via CLI 
+```yml
+kubectl create namespace nginx
+kubectl create deployment nginx-deployment --replicas=3 --image=nginx --port=80 -n nginx 
+kubectl expose deployment nginx-deployment --name=nginx-service --type=LoadBalancer --port=80 --protocol=TCP -n nginx
+kubectl get all -n nginx
+kubectl get pods -l app=nginx
+```
+
+# Create my app - 
 
