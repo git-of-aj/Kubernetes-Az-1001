@@ -1,22 +1,24 @@
+```
 npm init -y
- npm install express
- node index.js
+npm install express
+node index.js
+```
 
- Make chnage in Index.js ==> Ctrl-C -> node index.js again to show up changes ! in localhost
-
-
- docker run -p 80:3000  -v "C:\Users\anana\Downloads\k8s\gpt:/app" --rm -it node bash      
- -- creates folder with name app under /
+ > Make chnage in Index.js ==> Ctrl-C -> node index.js again to show up changes ! in localhost
 
 
- create DOckerFile
- after creating =
+ `docker run -p 80:3000  -v "C:\Users\anana\Downloads\k8s\gpt:/app" --rm -it node bash  `  
+ **-- creates folder with name app under**
 
+
+ # create DOckerFile
+ after creating
+```
  docker run --name aj --rm -p 80:3000  test_node
  docker stop aj 
  docker build -t test9798.azurecr.io/node_app:v1 .
  docker push test9798.azurecr.io/node_app:v1
-
+```
 # Create a resource group (if you haven't already)
 az group create --name aks-demo --location centralindia
 
@@ -27,18 +29,20 @@ az aks create --resource-group aks-demo --name aks-v1 --node-count 2 --enable-ad
 > gpt > kubectl apply -f deployment.yaml
 Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.
 
-
+```
 kubectl get deployments --all-namespaces=true
  kubectl get pods
  kubectl describe pods id
 kubectl apply -f services.yaml
 kubectl get services
+```
 
 
-You get Error - ImagePullBackOff in AKS
+
+# Integrate ACR - 
+- You get Error - ImagePullBackOff in AKS
 when try to deploy Deploymnet.yaml
-Integrate ACR - 
-# https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
+https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
 
 
 -------------------
