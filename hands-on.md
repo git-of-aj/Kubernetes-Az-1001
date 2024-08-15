@@ -12,6 +12,7 @@ kubectl create deployment nginx-deployment --replicas=3 --image=nginx --port=80 
 kubectl expose deployment nginx-deployment --name=nginx-service --type=LoadBalancer --port=80 --protocol=TCP -n nginx
 kubectl get all -n nginx
 kubectl get pods -l app=nginx
+kubectl get service -n nginx
 ```
 
 # Create my app - 
