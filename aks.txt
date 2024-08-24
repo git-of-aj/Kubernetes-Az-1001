@@ -1,0 +1,100 @@
+Welcome to OpenDev Etherpad!
+
+This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!
+
+OpenDev: https://opendev.org
+Etherpad on Github: https://github.com/ether/etherpad-lite
+
+
++================================================
+
+kubectl create ns your-name
+
+kubectl create deployment nginx-deployment --replicas=3 --image=nginx --port=80 -n your-name
+
+Verify ==> kubectl get deployments -n
+
+kubectl expose deployment nginx-deployment --name=nginx-service --type=LoadBalancer --port=80 --protocol=TCP -n your-name
+
+kubectl get all -n nginx
+
+kubectl get pods
+
+
+kubectl config current-context
+
+
+===========
+
+RG=az-1001
+ACRNAME=az1001demo
+AKS=az1001demo
+
+az aks get-credentials --resource-group $RG --name $AKS
+
+1. NS
+2. Deployment 
+3. Service type = lB
+
+--------------------------------------- deployment.yaml -----------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stage-app-2
+  ##########
+  labels:
+    app: stage-app-2
+#############
+    env: stage
+    owner: aj
+spec:
+  replicas: 2
+  ############
+  selector:
+    matchLabels:
+      app: stage-app-2
+##############
+      # Pod 
+  template:
+    metadata:
+      labels:
+        app: stage-app-2
+    spec:
+      containers:
+      - name: webapp
+        image: oj09/static-webpage:latest
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+# creating a service to expose our app using azure load balancer 
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: stage-app-2
+  name: az-lb-service-2
+spec:
+  ports:
+  # open this in node
+  - nodePort: 30130
+  # open this on LB 
+    port: 80
+    protocol: TCP
+    # contact container on this port 
+    targetPort: 80
+##############
+  selector:
+    app: stage-app-2
+################
+  type: LoadBalancer
+
+        
+    ==> to run == kubectl apply -f deployment.yaml
+    
+    
+    kubectl describe pod stage-app-2-b76574fd8-g8d77
+    kubectl logs stage-app-2-b76574fd8-g8d77
+
+https://www.metricsthatmatter.com/url/u.aspx?D848E17E8209672363
+
